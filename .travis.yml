@@ -8,8 +8,9 @@ env:
     - TRAVIS_DEBIAN_COMPONENTS="main restricted universe multiverse"
     - TRAVIS_DEBIAN_MIRROR="http://us-east-1.ec2.archive.ubuntu.com/ubuntu"
     - TRAVIS_DEBIAN_TARGET_DIR="${TRAVIS_BUILD_DIR}/dist"
+    - TRAVIS_DEBIAN_SECURITY_UPDATES="false"
   matrix:
-    - TRAVIS_DEBIAN_DISTRIBUTION="xenial"
-    - TRAVIS_DEBIAN_DISTRIBUTION="bionic"
+    - TRAVIS_DEBIAN_DISTRIBUTION="xenial" TRAVIS_DEBIAN_BACKPORTS="xenial-updates xenial-backports xenial-security"
+    - TRAVIS_DEBIAN_DISTRIBUTION="bionic" TRAVIS_DEBIAN_BACKPORTS="bionic-updates bionic-backports bionic-security"
 script:
   - wget -O- http://travis.debian.net/script.sh | sh -
