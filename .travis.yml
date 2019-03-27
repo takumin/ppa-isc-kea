@@ -8,6 +8,8 @@ env:
     - TRAVIS_DEBIAN_COMPONENTS="main restricted universe multiverse"
     - TRAVIS_DEBIAN_MIRROR="http://us-east-1.ec2.archive.ubuntu.com/ubuntu"
     - TRAVIS_DEBIAN_TARGET_DIR="${TRAVIS_BUILD_DIR}/dist"
+    - TRAVIS_DEBIAN_NETWORK_ENABLED="true"
+    - TRAVIS_DEBIAN_INCREMENT_VERSION_NUMBER="true"
     - DEB_BUILD_OPTIONS="parallel=4"
   matrix:
     - TRAVIS_DEBIAN_DISTRIBUTION="xenial" TRAVIS_DEBIAN_BACKPORTS="xenial-backports"
