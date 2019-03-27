@@ -4,9 +4,10 @@ Priority: optional
 Maintainer: Kea <isc-kea@packages.debian.org>
 Uploaders: Adam Majer <adamm@zombino.com>,
            Ondřej Surý <ondrej@debian.org>,
-           Jason Guy <jason.e.guy@gmail.com>
+           Jason Guy <jason.e.guy@gmail.com>,
+           Takumi Takahashi <takumiiinn@gmail.com>
 Build-Depends: bison,
-               debhelper-compat (= 12),
+               debhelper (>= 10),
                default-libmysqlclient-dev | libmysqlclient-dev,
                dh-python,
                docbook,

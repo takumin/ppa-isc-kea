@@ -1,0 +1,15 @@
+dist: xenial
+language: minimal
+services:
+  - docker
+env:
+  global:
+    - TRAVIS_DEBIAN_DERIVATIVE="ubuntu"
+    - TRAVIS_DEBIAN_COMPONENTS="main restricted universe multiverse"
+    - TRAVIS_DEBIAN_MIRROR="http://us-east-1.ec2.archive.ubuntu.com/ubuntu"
+    - TRAVIS_DEBIAN_TARGET_DIR="${TRAVIS_BUILD_DIR}/dist"
+  matrix:
+    - TRAVIS_DEBIAN_DISTRIBUTION="xenial"
+    - TRAVIS_DEBIAN_DISTRIBUTION="bionic"
+script:
+  - wget -O- http://travis.debian.net/script.sh | sh -

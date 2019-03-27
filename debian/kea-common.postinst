@@ -6,24 +6,24 @@
 set -e
 
 case "$1" in
-    configure)
-	adduser --force-badname --quiet --system --home /var/lib/kea \
-           --shell /bin/false --no-create-home --disabled-password --disabled-login \
-	   --gecos "Kea DHCP User" _kea >/dev/null || exit 1
+  configure)
+    adduser --force-badname --quiet --system --group --home /var/lib/kea \
+      --shell /bin/false --no-create-home --disabled-password --disabled-login \
+      --gecos "Kea DHCP User" _kea >/dev/null || exit 1
 
-	for d in /var/log/kea /var/lib/kea; do
-	    if ! dpkg-statoverride --list $d >/dev/null 2>&1; then
-		dpkg-statoverride --update --add _kea _kea 0750 $d
-	    fi
-	done
+    for d in /var/log/kea /var/lib/kea; do
+      if ! dpkg-statoverride --list $d >/dev/null 2>&1; then
+        dpkg-statoverride --update --add _kea _kea 0750 $d
+      fi
+    done
     ;;
 
-    abort-upgrade|abort-remove|abort-deconfigure)
+  abort-upgrade|abort-remove|abort-deconfigure)
     ;;
 
-    *)
-        echo "postinst called with unknown argument \`$1'" >&2
-        exit 1
+  *)
+    echo "postinst called with unknown argument \`$1'" >&2
+    exit 1
     ;;
 esac
 
